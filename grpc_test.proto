@@ -1,0 +1,18 @@
+// Copyright (c) 2016, Carbon3d Inc.  All rights reserved.
+// Authors: saito@carbon3d.com
+// TODO(saito) This is just for testing.
+syntax = "proto2";
+package grpc_test;
+message Request {
+  optional string data = 1;
+  optional double hang_seconds = 2;
+  optional int32 num_responses = 3;
+}
+
+message Response {
+  optional string data = 1;
+}
+
+service Server {
+  rpc Run(Request) returns (stream Response) {}
+}
